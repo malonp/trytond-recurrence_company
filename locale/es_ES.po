@@ -1,0 +1,20 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:recurrence.event,companies:"
+msgid "Companies"
+msgstr "Empresas"
+
+msgctxt "help:recurrence.event,companies:"
+msgid "Companies registered for this recurrence event"
+msgstr "Empresas registradas para esta acción planificada"
+
+
+msgctxt "field:company.company,scheduled_actions:"
+msgid "Scheduled Actions"
+msgstr "Acciones Planificadas"
+
+msgctxt "help:company.company,scheduled_actions:"
+msgid "Scheduled actions planed for this company"
+msgstr "Acciones planificadas previstas para esta empresa"

@@ -19,15 +19,16 @@
 #
 ##############################################################################
 
-from trytond.pool import Pool
 
-from .company import *
-from .recurrence import *
+from trytond.pool import PoolMeta
+from trytond.model import fields
 
 
-def register():
-    Pool.register(
-        Company,
-        RecurrenceEvent,
-        RecurrenceEventCompany,
-        module='recurrence_company', type_='model')
+__all__ = ['Company']
+__metaclass__ = PoolMeta
+
+
+class Company:
+    __name__ = 'company.company'
+    scheduled_actions = fields.Many2Many('recurrence.event-company.company', 'company', 'event',
+            'Scheduled Actions', help='Scheduled actions planed for this company')

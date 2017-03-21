@@ -63,7 +63,6 @@ class RecurrenceEvent:
 class RecurrenceEventCompany(ModelSQL):
     'RecurrenceEvent - Company'
     __name__ = 'recurrence.event-company.company'
-    _table = 'recurrence_event_company_rel'
     event = fields.Many2One('recurrence.event', 'Recurrence Event', ondelete='CASCADE',
             required=True, select=True)
     company = fields.Many2One('company.company', 'Company', ondelete='CASCADE',
