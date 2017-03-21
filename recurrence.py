@@ -29,7 +29,7 @@ __all__ = ['RecurrenceEvent', 'RecurrenceEventCompany']
 
 class RecurrenceEvent:
     __metaclass__ = PoolMeta
-    __name__ = "recurrence.event"
+    __name__ = 'recurrence.event'
     companies = fields.Many2Many('recurrence.event-company.company', 'event', 'company',
             'Companies', help='Companies registered for this recurrence event')
 
