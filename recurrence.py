@@ -41,7 +41,7 @@ class RecurrenceEvent:
 
         for event in events:
             if not event.companies:
-                return super(RecurrentEvent, cls).run_once([event])
+                return super(RecurrenceEvent, cls).run_once([event])
             for company in event.companies:
                 User.write([event.user], {
                         'company': company.id,
