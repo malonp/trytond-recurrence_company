@@ -54,11 +54,6 @@ class RecurrenceEvent:
                     'main_company': None,
                     })
 
-    @staticmethod
-    def default_companies():
-        Company = Pool().get('company.company')
-        return map(int, Company.search([]))
-
 
 class RecurrenceEventCompany(ModelSQL):
     'RecurrenceEvent - Company'
