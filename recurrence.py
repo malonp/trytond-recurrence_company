@@ -27,8 +27,7 @@ from trytond.transaction import Transaction
 __all__ = ['RecurrenceEvent', 'RecurrenceEventCompany']
 
 
-class RecurrenceEvent:
-    __metaclass__ = PoolMeta
+class RecurrenceEvent(metaclass=PoolMeta):
     __name__ = 'recurrence.event'
     companies = fields.Many2Many('recurrence.event-company.company', 'event', 'company',
             'Companies', help='Companies registered for this recurrence event')
@@ -53,7 +52,6 @@ class RecurrenceEvent:
                     'company': None,
                     'main_company': None,
                     })
-
 
 class RecurrenceEventCompany(ModelSQL):
     'RecurrenceEvent - Company'
