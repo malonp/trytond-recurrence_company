@@ -29,5 +29,10 @@ __all__ = ['Company']
 
 class Company(metaclass=PoolMeta):
     __name__ = 'company.company'
-    scheduled_actions = fields.Many2Many('recurrence.event-company.company', 'company', 'event',
-            'Scheduled Actions', help='Scheduled actions planed for this company')
+    scheduled_actions = fields.Many2Many(
+        'recurrence.event-company.company',
+        'company',
+        'event',
+        'Scheduled Actions',
+        help='Scheduled actions planed for this company',
+    )

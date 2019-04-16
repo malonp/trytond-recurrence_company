@@ -26,8 +26,4 @@ from .recurrence import *
 
 
 def register():
-    Pool.register(
-        Company,
-        RecurrenceEvent,
-        RecurrenceEventCompany,
-        module='recurrence_company', type_='model')
+    Pool.register(Company, RecurrenceEvent, RecurrenceEventCompany, module='recurrence_company', type_='model')
