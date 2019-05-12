@@ -29,8 +29,13 @@ __all__ = ['RecurrenceEvent', 'RecurrenceEventCompany']
 
 class RecurrenceEvent(metaclass=PoolMeta):
     __name__ = 'recurrence.event'
-    companies = fields.Many2Many('recurrence.event-company.company', 'event', 'company',
-            'Companies', help='Companies registered for this recurrence event')
+    companies = fields.Many2Many(
+        'recurrence.event-company.company',
+        'event',
+        'company',
+        'Companies',
+        help='Companies registered for this recurrence event',
+    )
 
     @dualmethod
     @ModelView.button
@@ -42,21 +47,14 @@ class RecurrenceEvent(metaclass=PoolMeta):
             if not event.companies:
                 return super(RecurrenceEvent, cls).run_once([event])
             for company in event.companies:
-                User.write([event.user], {
-                        'company': company.id,
-                        'main_company': company.id,
-                        })
+                User.write([event.user], {'company': company.id, 'main_company': company.id})
                 with Transaction().set_context(company=company.id):
                     super(RecurrenceEvent, cls).run_once([event])
-            User.write([event.user], {
-                    'company': None,
-                    'main_company': None,
-                    })
+            User.write([event.user], {'company': None, 'main_company': None})
+
 
 class RecurrenceEventCompany(ModelSQL):
     'RecurrenceEvent - Company'
     __name__ = 'recurrence.event-company.company'
-    event = fields.Many2One('recurrence.event', 'Recurrence Event', ondelete='CASCADE',
-            required=True, select=True)
-    company = fields.Many2One('company.company', 'Company', ondelete='CASCADE',
-            required=True, select=True)
+    event = fields.Many2One('recurrence.event', 'Recurrence Event', ondelete='CASCADE', required=True, select=True)
+    company = fields.Many2One('company.company', 'Company', ondelete='CASCADE', required=True, select=True)
