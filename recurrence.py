@@ -19,10 +19,9 @@
 #
 ##############################################################################
 
-from trytond.model import ModelSQL, ModelView, fields, dualmethod
+from trytond.model import ModelSQL, ModelView, dualmethod, fields
 from trytond.pool import Pool, PoolMeta
 from trytond.transaction import Transaction
-
 
 __all__ = ['RecurrenceEvent', 'RecurrenceEventCompany']
 
