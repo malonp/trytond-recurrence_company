@@ -39,7 +39,6 @@ class RecurrenceEvent(metaclass=PoolMeta):
     @dualmethod
     @ModelView.button
     def run_once(cls, events):
-        pool = Pool()
         User = Pool().get('res.user')
 
         for event in events:
